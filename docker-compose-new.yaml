@@ -46,15 +46,15 @@ services:
   #     - mysql
   #   stdin_open: true
   #   tty: true
-  
+
   php7:
     container_name: php7
     build: .
-    image: jiangqiao/php-7.2.33-fpm-banban-2021-11:latest
+    image: php:7.2-fpm
     platform: linux/amd64
     volumes:
       - /Users/banban/Desktop/lnmp/php7/php-fpm.conf:/usr/local/etc/php-fpm.conf:ro
-      - /Users/banban/Desktop/lnmp/php7/conf.d:/usr/local/etc/php-fpm/php-fpm.d
+      - /Users/banban/Desktop/lnmp/php7/conf.d:/usr/local/etc/php-fpm.d
       - /Users/banban/Desktop/lnmp/www/html/:/home/
       - /Users/banban/Desktop/lnmp/nginx/html:/var/www/html
       - /Users/banban/Desktop/lnmp/php7/php.ini:/usr/local/etc/php/php.ini
@@ -66,6 +66,26 @@ services:
     links:
       - redis
       - mysql
+
+  # php7:
+  #   container_name: php7
+  #   build: .
+  #   image: jiangqiao/php-7.2.33-fpm-banban-2021-11:latest
+  #   platform: linux/amd64
+  #   volumes:
+  #     - /Users/banban/Desktop/lnmp/php7/php-fpm.conf:/usr/local/etc/php-fpm.conf:ro
+  #     - /Users/banban/Desktop/lnmp/php7/conf.d:/usr/local/etc/php-fpm.d
+  #     - /Users/banban/Desktop/lnmp/www/html/:/home/
+  #     - /Users/banban/Desktop/lnmp/nginx/html:/var/www/html
+  #     - /Users/banban/Desktop/lnmp/php7/php.ini:/usr/local/etc/php/php.ini
+  #   environment:
+  #     - TZ=Asia/Shanghai # 设置时区
+  #   networks:
+  #     - frontend
+  #     - backend
+  #   links:
+  #     - redis
+  #     - mysql
 
   redis:
     container_name: redis
