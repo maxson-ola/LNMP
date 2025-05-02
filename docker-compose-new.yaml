@@ -9,7 +9,7 @@ services:
     volumes:
       - /Users/banban/Desktop/lnmp/nginx/conf/nginx.conf:/etc/nginx/nginx.conf:ro
       - /Users/banban/Desktop/lnmp/nginx/conf/conf.d:/etc/nginx/conf.d
-      - /Users/banban/Desktop/lnmp/nginx/html:/usr/share/nginx/html
+      - /Users/banban/Desktop/bms-newton-workorder/server/public:/usr/share/nginx/html
       - /Users/banban/Desktop/lnmp/www/html/:/home/
     networks:
       - frontend
@@ -66,6 +66,8 @@ services:
     links:
       - redis
       - mysql
+    # stdin_open: true
+    # tty: true      
 
   # php7:
   #   container_name: php7

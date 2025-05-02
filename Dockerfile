@@ -13,8 +13,10 @@ RUN apt-get update && apt-get install -y \
     && ./install \
     # Register Phalcon extension
     && echo "extension=/usr/local/lib/php/extensions/no-debug-non-zts-20170718/phalcon.so" > /usr/local/etc/php/conf.d/phalcon.ini \
+    && echo "extension=/usr/local/lib/php/extensions/no-debug-non-zts-20170718/sodium.so" > /usr/local/etc/php/conf.d/sodium.ini \
+    && echo "extension=/usr/local/lib/php/extensions/no-debug-non-zts-20170718/phpiredis.so" > /usr/local/etc/php/conf.d/phpiredis.ini \
+    && echo "extension=/usr/local/lib/php/extensions/no-debug-non-zts-20170718/redis.so" > /usr/local/etc/php/conf.d/redis.ini \
     # Ensure Sodium is loaded
-    && echo "extension=sodium.so" > /usr/local/etc/php/conf.d/30-sodium.ini \
     && docker-php-source delete \
     # Cleanup
     && rm -rf /tmp/cphalcon \
